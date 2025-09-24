@@ -271,23 +271,6 @@
 </section>
 
 
-<!-- Teaser video-->
-<!-- <section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section> -->
-<!-- End teaser video -->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -298,14 +281,14 @@
         <div class="content has-text-justified">
           <!-- TODO: Replace with your paper abstract -->
           <p>
-            LLM-judged benchmarks are increasingly used to evaluate complex model behaviors, yet their design introduces failure modes absent in conventional, ground-truth–based benchmarks. 
-            We argue that, without tight objectives and verifiable constructions, benchmark rankings can produce high-confidence rankings that are in fact largely noise. We introduce 
-            two mechanisms to diagnose these issues. \emph{Schematic adherence} quantifies how much of a judge’s overall verdict is explained by the explicit evaluation schema, revealing 
-            unexplained variance when judges deviate from their own rubric. \emph{Psychometric validity} aggregates internal consistency and discriminant validity signals to quantify 
-            irreducible uncertainty in any benchmarking run. Applying these tools to Arena-Hard Auto, we find severe schema incoherence and factor collapse across popular judges: e.g., 
-            unexplained variance exceeding 90% for DeepSeek-R1-32B and factor correlations above 0.93 for most criteria. We also show that the ELO-style aggregation used by Arena-Hard Auto 
-            collapses and masks genuine ranking uncertainty. Our results highlight design failures that undermine validity and offer actionable principles for building better-scoped, 
-            reliability-aware LLM-judged benchmarks. We release our code at https://github.com/penfever/judgment-to-noise
+            LLM-judged benchmarks are increasingly used to evaluate complex model behaviors, yet their design introduces failure modes absent in conventional, ground-truth–based 
+            benchmarks. We argue that, without tight objectives and verifiable constructions, benchmark rankings can produce high-confidence rankings that are in fact largely noise. We introduce 
+            two mechanisms to diagnose these issues. <em>Schematic adherence</em> quantifies how much of a judge’s overall verdict is explained by the explicit evaluation schema, revealing 
+            unexplained variance when judges deviate from their own rubric. <em>Psychometric validity</em> aggregates internal consistency and discriminant validity signals to quantify irreducible 
+            uncertainty in any benchmarking run. Applying these tools to Arena-Hard Auto, we find severe schema incoherence and factor collapse across popular judges: e.g., unexplained variance 
+            exceeding 90% for DeepSeek-R1-32B and factor correlations above 0.93 for most criteria. We also show that the ELO-style aggregation used by Arena-Hard Auto collapses and masks 
+            genuine ranking uncertainty. Our results highlight design failures that undermine validity and offer actionable principles for building better-scoped, reliability-aware LLM-judged 
+            benchmarks. We release our code at https://github.com/penfever/judgment-to-noise
           </p>
         </div>
       </div>
@@ -320,26 +303,54 @@
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
+        <div class="item">
         <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
+        <img src="static/images/variance_decomposition.png" alt="First research result visualization" loading="lazy"/>
         <!-- TODO: Replace with description of this result -->
         <h2 class="subtitle has-text-centered">
-          First image description.
+          <b>Figure 1:Figure 1: The majority of true judgment variance has no known cause.</b> On the Arena-Hard-Auto
+          benchmark, with a rubric specifying 5 judgment criteria, we find that across four judges and two
+          settings (different cohorts of models to be compared), approximately 55% of variance, on average,
+          is unexplained either by linear or taylor-series polynomial factor analysis on the rubric criteria.
+          After ELO transformation, the linear model explains 100% of observed variance, indicating that, by
+          enforcing transitivity, ELO hides true latent uncertainty in multi-factor analysis. 
+        </h2>
+        </div>
+        <div class="item">
+        <!-- TODO: Replace with your research result images -->
+        <img src="static/images/correlation_matrix.png" alt="First research result visualization" loading="lazy"/>
+        <!-- TODO: Replace with description of this result -->
+        <h2 class="subtitle has-text-centered">
+          <b>Figure 2: Most factors are highly correlated for most judges.</b> In Setting 1, across all four judges,
+          the average spearman rank correlation matrix shows high cross-factor correlations (> 0.93 for most
+          pairs). This suggests factor collapse – the inability of judges to meaningfully distinguish between
+          semantically distinct rubric factors in the setting.
+        </h2>
+        </div>
+        <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/factor_loadings_scree_newbench.png" alt="Second research result visualization" loading="lazy"/>
+        <h2 class="subtitle has-text-centered">
+          <b>Figure 3: Diverse judges exhibit very similar latent factor loadings.</b> Across four different LLM
+          judges in benchmark Setting 2, the eigenvalues associated with factor weightings are highly similar;
+          all indicate a collapse of significance in the latent loadings.
+        </h2>
+      </div>
+        <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/elo_ranking_collapse.png" alt="Second research result visualization" loading="lazy"/>
+        <h2 class="subtitle has-text-centered">
+          Figure 4: ELO-style aggregation compresses multi-dimensional, noisy judgments into apparently
+          smooth rankings, masking upstream uncertainty.
         </h2>
       </div>
       <div class="item">
         <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
+        <img src="static/images/factor_ablation.png" alt="Third research result visualization" loading="lazy"/>
         <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
+         Figure 5: Factor ablation study results showing that while absolute ELO scores change dramatically
+          when factors are evaluated in isolation versus collectively, model rankings remain largely stable.
+          This demonstrates that our findings about judge bias are robust to different evaluation methodologies.
        </h2>
      </div>
      <div class="item">
