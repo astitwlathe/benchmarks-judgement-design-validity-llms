@@ -140,3 +140,28 @@ $(document).ready(function() {
     setupVideoCarouselAutoplay();
 
 })
+
+// Simple share helpers
+function shareOnTwitter() {
+  const url = encodeURIComponent(window.location.href);
+  const text = encodeURIComponent(document.title);
+  const shareUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+  window.open(shareUrl, '_blank', 'noopener');
+}
+
+function shareOnLinkedIn() {
+  const url = encodeURIComponent(window.location.href);
+  const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+  window.open(shareUrl, '_blank', 'noopener');
+}
+
+function copyPageLink(el) {
+  const url = window.location.href;
+  navigator.clipboard.writeText(url).then(() => {
+    if (el) {
+      const orig = el.innerHTML;
+      el.innerHTML = '<i class="fas fa-check"></i><span>Copied</span>';
+      setTimeout(() => { el.innerHTML = orig; }, 1500);
+    }
+  });
+}
