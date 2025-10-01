@@ -277,9 +277,10 @@ body {
 
 .results-carousel .item img,
 .results-carousel video {
-  margin: 0;
+  display: block;
+  margin: 0 auto;
   border-radius: var(--border-radius);
-  width: 100%;
+  width: 66.6667%;
   height: auto;
 }
 
@@ -647,6 +648,12 @@ code {
     padding: 1rem;
   }
   
+  /* On smaller screens, let images use full width */
+  .results-carousel .item img,
+  .results-carousel video {
+    width: 100%;
+  }
+  
   .teaser .hero-body {
     padding: 1rem;
   }
@@ -748,6 +755,4 @@ a:focus {
     box-shadow: none !important;
   }
 }
-
-
 
