@@ -390,59 +390,138 @@ better-scoped, reliability-aware LLM-judged benchmarks.
 </section>
 <!-- End paper abstract -->
 
+<!-- Example contributions panel (matches screenshot) -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="panel-box" role="region" aria-labelledby="contribs-heading">
+      <div id="contribs-heading" class="panel-header">Contributions</div>
+      <ul>
+        <li><strong>Mechanisms:</strong> We introduce two novel diagnostic metrics for LLM judge benchmarks —</li>
+        <li>(1) <strong>Schematic adherence</strong> quantifies how well overall verdicts derive from factor-wise rubric scores.</li>
+        <li>(2) <strong>Psychometric validity</strong> aggregates internal consistency and discriminant validity to quantify how well a benchmark's design fits its judgment rubric.</li>
+        <li><strong>Case study:</strong> Applying both mechanisms to Arena-Hard Auto, we uncover severe rubric incoherence and factor collapse across judges.</li>
+        <li><strong>Guidance:</strong> Actionable design principles for LLM-judged benchmarks: tighten objectives, audit factor structure, and report uncertainty.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 
 <!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
+<!-- <section class="hero is-small"> -->
+  <!-- <div class="hero-body"> -->
+    <!-- <div class="container"> -->
+      <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+       <!-- <div class="item"> -->
         <!-- TODO: Replace with your research result images -->
-        <img src="static/images/no_known_cause.png" alt="First research result visualization" loading="lazy"/>
+        <!-- <img src="static/images/no_known_cause.png" alt="First research result visualization" loading="lazy"/> -->
         <!-- TODO: Replace with description of this result -->
         
-        <h2 class="subtitle has-text-centered">
-        Figure 1: The majority of true judgment variance has no known cause. On the Arena-Hard-Auto
-benchmark, with a rubric specifying 5 judgment criteria, we find that across four judges and two
-settings (different cohorts of models to be compared), approximately 55% of variance, on average,
-is unexplained either by linear or taylor-series polynomial factor analysis on the rubric criteria.
-After ELO transformation, the linear model explains 100% of observed variance, indicating that, by
-enforcing transitivity, ELO hides true latent uncertainty in multi-factor analysis.
-        </h2>
+        <!-- <h2 class="subtitle has-text-centered"> -->
+        <!-- Figure 1: The majority of true judgment variance has no known cause. On the Arena-Hard-Auto -->
+<!-- benchmark, with a rubric specifying 5 judgment criteria, we find that across four judges and two -->
+<!-- settings (different cohorts of models to be compared), approximately 55% of variance, on average, -->
+<!-- is unexplained either by linear or taylor-series polynomial factor analysis on the rubric criteria. -->
+<!-- After ELO transformation, the linear model explains 100% of observed variance, indicating that, by -->
+<!-- enforcing transitivity, ELO hides true latent uncertainty in multi-factor analysis. -->
+        <!-- </h2> -->
         
-      </div>
-      <div class="item">
+      <!-- </div> -->
+      <!-- <div class="item"> -->
         <!-- Your image here -->
-        <img src="static/images/most_factors_are_highly_correlated_for_most_judges.png" alt="Second research result visualization" loading="lazy"/>
+        <!-- <img src="static/images/most_factors_are_highly_correlated_for_most_judges.png" alt="Second research result visualization" loading="lazy"/> -->
         <!--
         <h2 class="subtitle has-text-centered">
           Second image description.
         </h2>
         -->
       </div>
-      <div class="item">
+      <!-- <div class="item"> -->
         <!-- Your image here -->
-        <img src="static/images/ELO.png" alt="Third research result visualization" loading="lazy"/>
+        <!-- <img src="static/images/ELO.png" alt="Third research result visualization" loading="lazy"/> -->
         <!--
         <h2 class="subtitle has-text-centered">
          Third image description.
         </h2>
         -->
      </div>
-     <div class="item">
+     <!-- <div class="item"> -->
       <!-- Your image here -->
-      <img src="static/images/ablation.png" alt="Fourth research result visualization" loading="lazy"/>
+      <!-- <img src="static/images/ablation.png" alt="Fourth research result visualization" loading="lazy"/> -->
       <!--
       <h2 class="subtitle has-text-centered">
         Fourth image description.
       </h2>
       -->
-    </div>
+    <!-- </div> -->
+  <!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </section> -->
+<!-- End image carousel -->
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+        <!-- TODO: Replace with your research result images -->
+        <img src="static/images/variance_decomposition.png" alt="First research result visualization" loading="lazy"/>
+        <!-- TODO: Replace with description of this result -->
+        <h2 class="subtitle has-text-centered">
+          Figure 1: <b>The majority of true judgment variance has no known cause.</b> On the Arena-Hard-Auto
+          benchmark, with a rubric specifying 5 judgment criteria, we find that across four judges and two
+          settings (different cohorts of models to be compared), approximately 55% of variance, on average,
+          is unexplained either by linear or taylor-series polynomial factor analysis on the rubric criteria.
+          After ELO transformation, the linear model explains 100% of observed variance, indicating that, by
+          enforcing transitivity, ELO hides true latent uncertainty in multi-factor analysis. 
+        </h2>
+        </div>
+        <div class="item">
+        <!-- TODO: Replace with your research result images -->
+        <img src="static/images/correlation_matrix.png" alt="Second research result visualization" loading="lazy"/>
+        <!-- TODO: Replace with description of this result -->
+        <h2 class="subtitle has-text-centered">
+          Figure 2: <b>Most factors are highly correlated for most judges.</b> In Setting 1, across all four judges,
+          the average spearman rank correlation matrix shows high cross-factor correlations (> 0.93 for most
+          pairs). This suggests factor collapse – the inability of judges to meaningfully distinguish between
+          semantically distinct rubric factors in the setting.
+        </h2>
+        </div>
+        <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/factor_loadings_scree_newbench.png" alt="Third research result visualization" loading="lazy"/>
+        <h2 class="subtitle has-text-centered">
+          Figure 3: <b>Diverse judges exhibit very similar latent factor loadings.</b> Across four different LLM
+          judges in benchmark Setting 2, the eigenvalues associated with factor weightings are highly similar;
+          all indicate a collapse of significance in the latent loadings.
+        </h2>
+      </div>
+        <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/elo_ranking_collapse.png" alt="Fourth research result visualization" loading="lazy"/>
+        <h2 class="subtitle has-text-centered">
+          Figure 4: <b>ELO-style aggregation compresses multi-dimensional, noisy judgments into apparently
+          smooth rankings, masking upstream uncertainty.</b>
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/factor_ablation.png" alt="Fifth research result visualization" loading="lazy"/>
+        <h2 class="subtitle has-text-centered">
+         Figure 5: <b>Factor ablation study results showing that while absolute ELO scores change dramatically
+          when factors are evaluated in isolation versus collectively, model rankings remain largely stable.</b>
+          This demonstrates that our findings about judge bias are robust to different evaluation methodologies.
+       </h2>
+     </div>
   </div>
 </div>
 </div>
 </section>
 <!-- End image carousel -->
+
 
 
 

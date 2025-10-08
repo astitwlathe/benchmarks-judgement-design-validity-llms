@@ -761,6 +761,41 @@ code {
   animation: fadeInUp 0.6s ease-out;
 }
 
+/* Panel box used for contribution / summary boxes (match screenshot) */
+.panel-box {
+  background: linear-gradient(180deg, var(--background-primary), var(--background-accent));
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  padding: 1.25rem 1.25rem;
+  color: var(--text-primary);
+  margin: 1rem 0 1.5rem;
+}
+
+.panel-box .panel-header {
+  background: linear-gradient(90deg, rgba(0,0,0,0.04), rgba(0,0,0,0.02));
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px 6px 4px 4px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: -1.25rem -1.25rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+
+.panel-box ul {
+  margin: 0.5rem 0 0 1rem;
+  padding-left: 1rem;
+  color: var(--text-secondary);
+}
+
+.panel-box li {
+  margin-bottom: 0.6rem;
+}
+
+.panel-box strong {
+  color: var(--text-primary);
+}
+
 /* Improved focus states for accessibility */
 .button:focus,
 .related-works-btn:focus,
