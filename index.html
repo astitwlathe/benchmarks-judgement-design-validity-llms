@@ -399,8 +399,8 @@ better-scoped, reliability-aware LLM-judged benchmarks.
         <li><strong>Mechanisms:</strong> We introduce two novel diagnostic metrics for LLM judge benchmarks —</li>
         <li>(1) <strong>Schematic adherence</strong> quantifies how well overall verdicts derive from factor-wise rubric scores.</li>
         <li>(2) <strong>Psychometric validity</strong> aggregates internal consistency and discriminant validity to quantify how well a benchmark's design fits its judgment rubric.</li>
-        <li><strong>Case study:</strong> Applying both mechanisms to Arena-Hard Auto, we uncover severe rubric incoherence and factor collapse across judges.</li>
-        <li><strong>Guidance:</strong> Actionable design principles for LLM-judged benchmarks: tighten objectives, audit factor structure, and report uncertainty.</li>
+  <li><strong>Case study:</strong> Applying both mechanisms to <em>Arena-Hard Auto</em>&nbsp;<sup><a href="#ref-li2024" id="cite-li2024">[Li et al., 2024]</a></sup>, we uncover severe rubric incoherence and factor collapse across judges (e.g., &gt;90% unexplained variance for DeepSeek-R1-32B; factor correlations &gt;0.93 across criteria), and show that ELO-style aggregation collapses uncertainty into seemingly stable rankings.</li>
+        <li><strong>Guidance:</strong> Actionable design principles for LLM-judged benchmarks: tighten objectives, audit factor structure, report uncertainty, avoid aggregation that erases variance, and constrain scope to where judges exhibit validity.</li>
       </ul>
     </div>
   </div>
